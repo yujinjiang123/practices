@@ -5,23 +5,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ts-node",
+      "name": "esno",
       "type": "node",
       "request": "launch",
-      "args": ["${relativeFile}"],
-      "runtimeArgs": [
-        "-r",
-        "ts-node/register",
-        "-r",
-        "tsconfig-paths/register"
-      ],
-      "cwd": "${workspaceFolder}",
+      "program": "${file}",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/tsx",
+
+      "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
-      "env": {
-        "NODE_ENV": "development",
-        "TS_NODE_PROJECT": "${workspaceRoot}/tsconfig.json",
-        "NODE_OPTIONS": "-r ts-node/register --no-warnings --loader ts-node/esm"
-      }
+      "skipFiles": [
+        // Node.js internal core modules
+        "<node_internals>/**",
+        // Ignore all dependencies (optional)
+        "${workspaceFolder}/node_modules/**"
+      ]
     }
   ]
 }

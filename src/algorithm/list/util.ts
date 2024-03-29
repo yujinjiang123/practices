@@ -1,4 +1,4 @@
-import { ListNode } from "@/types/list.ts";
+import { ListNode } from "@/types/list";
 
 export function generateList(arr: number[]) {
   let head = new ListNode();
