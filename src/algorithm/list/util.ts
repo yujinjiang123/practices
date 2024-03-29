@@ -1,14 +1,22 @@
 import { ListNode } from "@/types/list";
 
-export function generateList(arr: number[]) {
-  let head = new ListNode();
-  let p = head;
+// 头插法
+export function headInsert<T = number>(head: ListNode<T>, arr: T[]) {
   for (let i of arr) {
     const node = new ListNode(i);
-    p.next = node;
-    p = p.next;
+    node.next = head.next;
+    head.next = node;
   }
   return head;
 }
 
-console.log(generateList([1, 2, 3]));
+// 尾插法
+export function tailInsert<T = number>(head: ListNode<T>, arr: T[]) {
+  let p = head; // 尾部指针
+  for (let i of arr) {
+    const node = new ListNode(i);
+    p.next = node;
+    p = node;
+  }
+  return head;
+}
