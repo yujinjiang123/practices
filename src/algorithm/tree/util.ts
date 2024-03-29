@@ -1,7 +1,23 @@
 import { TreeNode } from "@/types/tree";
+import { isNull, isUndefined } from "lodash-es";
 
-// 通过先序序列和中序序列生成树
 export function buildTree(
+  preorder: number[],
+  inorder?: number[]
+): TreeNode | null;
+export function buildTree(order: (number | null)[]): TreeNode | null;
+export function buildTree(...args: any[]): TreeNode | null {
+  if (args.length === 2) {
+    const [preorder, inorder] = args;
+    return buildTreeByPreorderAndInorder(preorder, inorder);
+  } else {
+    const [order] = args;
+    return buildTreeByOrder(order);
+  }
+}
+
+// 由先序序列&中序序列建立二叉树
+function buildTreeByPreorderAndInorder(
   preorder: number[],
   inorder: number[]
 ): TreeNode | null {
@@ -16,8 +32,22 @@ export function buildTree(
   const rightPreorder = preorder.slice(leftInorder.length + 1);
   const root = new TreeNode(
     rootValue,
-    buildTree(leftPreorder, leftInorder),
-    buildTree(rightPreorder, rightInorder)
+    buildTreeByPreorderAndInorder(leftPreorder, leftInorder),
+    buildTreeByPreorderAndInorder(rightPreorder, rightInorder)
   );
   return root;
 }
+
+const a = [3, 9, 20, null, null, 15, 7];
+function buildTreeByOrder(order: (number | null)[]): TreeNode | null {
+  if (!Array.isArray(order) || order.length === 0) {
+    return null;
+  }
+  let level = 1;
+  while (true) {
+    
+  }
+}
+
+console.log(buildTree(a));
+debugger;
