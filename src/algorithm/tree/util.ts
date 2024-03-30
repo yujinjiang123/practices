@@ -1,5 +1,5 @@
 import { TreeNode } from "@/types/tree";
-import { isNull, isUndefined } from "lodash-es";
+import { isArray, isEmpty } from "lodash-es";
 
 export function buildTree(
   preorder: number[],
@@ -11,8 +11,7 @@ export function buildTree(...args: any[]): TreeNode | null {
     const [preorder, inorder] = args;
     return buildTreeByPreorderAndInorder(preorder, inorder);
   } else {
-    const [order] = args;
-    return buildTreeByOrder(order);
+    return null;
   }
 }
 
@@ -21,7 +20,14 @@ function buildTreeByPreorderAndInorder(
   preorder: number[],
   inorder: number[]
 ): TreeNode | null {
-  if (preorder.length === 0) {
+  if (!isArray(preorder) || !isArray(inorder)) {
+    return null;
+  }
+  if (
+    isEmpty(preorder) ||
+    isEmpty(inorder) ||
+    inorder.length !== preorder.length
+  ) {
     return null;
   }
   const rootValue = preorder[0];
@@ -37,17 +43,3 @@ function buildTreeByPreorderAndInorder(
   );
   return root;
 }
-
-const a = [3, 9, 20, null, null, 15, 7];
-function buildTreeByOrder(order: (number | null)[]): TreeNode | null {
-  if (!Array.isArray(order) || order.length === 0) {
-    return null;
-  }
-  let level = 1;
-  while (true) {
-    
-  }
-}
-
-console.log(buildTree(a));
-debugger;

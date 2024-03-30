@@ -1,10 +1,12 @@
-import BuildTree from "@/pages/Tree/BuildTree";
-
+import { Outlet } from "react-router-dom";
+import { Layout } from "antd";
 const App = () => {
   return (
-    <div>
-      <BuildTree />
-    </div>
+    <Layout>
+      <Layout.Content>
+        <Outlet />
+      </Layout.Content>
+    </Layout>
   );
 };
 
