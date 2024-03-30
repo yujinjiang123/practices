@@ -20,6 +20,23 @@ export function removeElements(
   return myHead.next;
 }
 
-const list = tailInsert(new ListNode(7), [7, 7, 7]);
+export function removeElements2(
+  head: ListNode | null,
+  val: number
+): ListNode | null {
+  const h = new ListNode(-1);
+  h.next = head;
+  let p = h;
+  while (p.next) {
+    if (p.next.val === val) {
+      p.next = p.next.next;
+    } else {
+      p = p.next;
+    }
+  }
+  return h.next;
+}
 
-console.log(removeElements(list, 7) + "");
+const list2 = tailInsert(new ListNode(7), [7, 7, 7]);
+console.log(list2.next + "");
+console.log(removeElements2(list2.next, 7) + "");
