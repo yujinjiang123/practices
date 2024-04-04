@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "${file}",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/tsx",
-
+      "runtimeArgs": ["--no-warnings"],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
       "skipFiles": [

@@ -8,7 +8,7 @@ export function isPalindrome(head: ListNode | null): boolean {
   let p: ListNode = head;
   let q: ListNode = head;
   const stack: number[] = [];
-  while (q.next) {
+  while (q?.next) {
     stack.push(p!.val);
     p = p.next!;
     q = q.next.next!;
@@ -26,6 +26,6 @@ export function isPalindrome(head: ListNode | null): boolean {
   return true;
 }
 
-const list = tailInsert(new ListNode(-1), [1, 2, 2, 1]);
+const list = tailInsert([1, 2, 3, 2, 2, 1]);
 
 console.log(isPalindrome(list.next));

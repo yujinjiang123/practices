@@ -21,7 +21,7 @@ const testData = [
 ];
 
 testData.forEach((data) => {
-  const list = tailInsert(new ListNode(-1), data);
+  const list = tailInsert(data);
   const h = removeMin(list);
   console.log(h.next + "");
 });

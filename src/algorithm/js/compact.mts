@@ -16,5 +16,5 @@ function compactObject(obj: Obj): Obj {
       }
     }
   }
-  return void 0;
+  return {};
 }

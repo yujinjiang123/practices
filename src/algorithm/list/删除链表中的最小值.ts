@@ -22,7 +22,7 @@ export function removeMin(head: ListNode) {
 const testData = [[], [1, 2, 3, 5, 6], [1, 2, 3, -3, 4], [1, 2, 6, 3, 4, -3]];
 
 testData.forEach((data) => {
-  const list = tailInsert(new ListNode(-1), data);
+  const list = tailInsert(data);
   const h = removeMin(list);
   console.log(h.next + "");
 });

@@ -16,7 +16,7 @@ function reverse(head: ListNode, k: number) {
 const testData = [[], [1, 2, 3, 4, 5, 6], [1, 2], [1]];
 
 testData.forEach((data) => {
-  const list = tailInsert(new ListNode(-1), data);
+  const list = tailInsert(data);
   reverse(list, 1);
   console.log(list + "");
 });

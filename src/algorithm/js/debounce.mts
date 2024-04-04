@@ -1,7 +1,7 @@
 type F = (...args: any[]) => void;
 
 function debounce(fn: F, t: number): F {
-  let id: number | null = null;
+  let id: any = null;
   return function (...args) {
     if (id) {
       clearTimeout(id);

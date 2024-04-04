@@ -28,7 +28,7 @@ function mergeTwoLists(
   return res.next;
 }
 
-const list1 = tailInsert(new ListNode(-1), [1, 2, 3]);
-const list2 = tailInsert(new ListNode(-1), [3, 5, 6]);
+const list1 = tailInsert([1, 2, 3]);
+const list2 = tailInsert([3, 5, 6]);
 const res = mergeTwoLists(list1.next, list2.next);
 console.log(res + "");
