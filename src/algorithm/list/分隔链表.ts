@@ -24,7 +24,6 @@ function partition(head: ListNode | null, x: number): ListNode | null {
   return h.next;
 }
 
-const list = tailInsert([2, 1]);
-console.log(list + "");
-const l = partition(list.next, 2);
-console.log(l + "");
+const list = tailInsert([1, 4, 3, 2, 5, 2]);
+
+console.log(partition(list.next, 3) + "");
