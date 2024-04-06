@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "module": "ESNext",
     "paths": {
       "@/*": ["./src/*"]
     }
-  },
-  "include": ["./src/**/*.ts"]
+  }
 }
